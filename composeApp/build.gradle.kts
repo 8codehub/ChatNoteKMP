@@ -97,7 +97,6 @@ room {
 }
 
 dependencies {
-   //implementation(project(":composeApp"))
     ksp(libs.room.compiler)
 }
 
