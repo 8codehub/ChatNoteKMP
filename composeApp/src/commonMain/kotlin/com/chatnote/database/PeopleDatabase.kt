@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
     entities = [Person::class],
     version = 1
 )
-abstract class PeopleDatabase: RoomDatabase() {
+abstract class PeopleDatabase : RoomDatabase() {
 
     abstract fun peopleDao(): PeopleDao
 

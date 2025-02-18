@@ -22,7 +22,12 @@ fun getDatabasePath(): String {
     val attributes = null // Default attributes
 
     if (!fileManager.fileExistsAtPath(databaseDir)) {
-        fileManager.createDirectoryAtURL(directoryURL, withIntermediateDirectories = true, attributes = attributes, error = null)
+        fileManager.createDirectoryAtURL(
+            directoryURL,
+            withIntermediateDirectories = true,
+            attributes = attributes,
+            error = null
+        )
     }
 
     return dbFilePath

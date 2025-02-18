@@ -5,8 +5,8 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.chatnote.coredata.model.FolderEntity
 import com.chatnote.coredata.di.model.FolderWithLastNote
+import com.chatnote.coredata.model.FolderEntity
 import currentTimeMillis
 import kotlinx.coroutines.flow.Flow
 
