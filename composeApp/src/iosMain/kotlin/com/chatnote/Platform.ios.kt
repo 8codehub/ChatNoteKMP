@@ -1,5 +1,3 @@
-package com.chatnote
-
 import platform.UIKit.UIDevice
 
 class IOSPlatform: Platform {

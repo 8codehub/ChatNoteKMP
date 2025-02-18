@@ -1,5 +1,3 @@
-package com.chatnote
-
 class Greeting {
     private val platform = getPlatform()
 

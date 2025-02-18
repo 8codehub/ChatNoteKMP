@@ -1,5 +1,3 @@
-package com.chatnote
-
 interface Platform {
     val name: String
 }
