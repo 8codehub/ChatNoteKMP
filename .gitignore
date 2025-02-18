@@ -17,3 +17,14 @@ captures
 !*.xcodeproj/project.xcworkspace/
 !*.xcworkspace/contents.xcworkspacedata
 **/xcshareddata/WorkspaceSettings.xcsettings
+/composeApp/schemas/database.PeopleDatabase/1.json
+/iosApp/iosApp/Assets.xcassets/AccentColor.colorset/Contents.json
+/iosApp/iosApp/Assets.xcassets/AppIcon.appiconset/Contents.json
+/iosApp/iosApp/Assets.xcassets/Contents.json
+/iosApp/iosApp/Preview Content/Preview Assets.xcassets/Contents.json
+/gradle/wrapper/gradle-wrapper.jar
+/gradlew
+/gradlew.bat
+/iosApp/iosApp.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+/iosApp/iosApp/Info.plist
+/iosApp/iosApp.xcodeproj/project.pbxproj
