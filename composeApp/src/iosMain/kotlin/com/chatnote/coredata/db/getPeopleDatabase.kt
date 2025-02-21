@@ -1,7 +1,8 @@
-package database
+package com.chatnote.coredata.db
 
 import androidx.room.Room
 import androidx.sqlite.driver.bundled.BundledSQLiteDriver
+import com.chatnote.coredata.*
 import kotlinx.cinterop.ExperimentalForeignApi
 import platform.Foundation.*
 
@@ -15,7 +16,7 @@ fun getDatabasePath(): String {
     )
 
     val databaseDir = urls.first() as String
-    val dbFilePath = "$databaseDir/people.db"
+    val dbFilePath = "$databaseDir/db.db"
 
     // Ensure the directory exists
     val directoryURL = NSURL.fileURLWithPath(databaseDir)
@@ -33,10 +34,10 @@ fun getDatabasePath(): String {
     return dbFilePath
 }
 
-fun getPeopleDatabase(): PeopleDatabase {
-    return Room.databaseBuilder<PeopleDatabase>(
+fun getAppDatabase(): AppDatabase {
+    return Room.databaseBuilder<AppDatabase>(
         name = getDatabasePath(),
-        factory = { PeopleDatabase::class.instantiateImpl() }
+        factory = { AppDatabase::class.instantiateImpl() }
     )
         .setDriver(BundledSQLiteDriver())
         .build()

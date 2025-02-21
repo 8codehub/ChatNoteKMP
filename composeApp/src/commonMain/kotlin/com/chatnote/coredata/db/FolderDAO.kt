@@ -1,4 +1,4 @@
-package com.chatnote.coredata.di.db
+package com.chatnote.coredata.db
 
 import androidx.room.Dao
 import androidx.room.Delete

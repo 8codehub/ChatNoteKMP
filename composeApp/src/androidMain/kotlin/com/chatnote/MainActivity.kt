@@ -4,13 +4,13 @@ import App
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.plcoding.room_cmp.database.getPeopleDatabase
+import com.plcoding.room_cmp.database.getAppDatabase
 
 class MainActivity : ComponentActivity() {
-    val dao = getPeopleDatabase(applicationContext).peopleDao()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val dao = getAppDatabase(applicationContext).folderDao()
 
 
         setContent {

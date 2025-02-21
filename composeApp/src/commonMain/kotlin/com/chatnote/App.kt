@@ -14,8 +14,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import database.PeopleDao
-import database.Person
+import com.chatnote.coredata.db.FolderDao
+import com.chatnote.coredata.model.FolderEntity
+
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -23,19 +24,21 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @OptIn(ExperimentalResourceApi::class)
 @Composable
 @Preview
-fun App(peopleDao: PeopleDao) {
+fun App(peopleDao: FolderDao) {
     MaterialTheme {
-        val people by peopleDao.getAllPeople().collectAsState(initial = emptyList())
+        val people by peopleDao.observeFoldersWithLastNote().collectAsState(initial = emptyList())
         val scope = rememberCoroutineScope()
 
         LaunchedEffect(true) {
             val peopleList = listOf(
-                Person(name = "John"),
-                Person(name = "Alice"),
-                Person(name = "Philipp"),
-            )
+                FolderEntity(name = "User1", iconUri = "", createdAt = currentTimeMillis(), pinnedDate = 0),
+                FolderEntity(name = "User2", iconUri = "", createdAt = currentTimeMillis(), pinnedDate = 0),
+                FolderEntity(name = "User3", iconUri = "", createdAt = currentTimeMillis(), pinnedDate = 0),
+                FolderEntity(name = "User4", iconUri = "", createdAt = currentTimeMillis(), pinnedDate = 0),
+
+                )
             peopleList.forEach {
-                peopleDao.upsert(it)
+                peopleDao.insertOrReplaceFolder(it)
             }
         }
 
@@ -46,12 +49,12 @@ fun App(peopleDao: PeopleDao) {
         ) {
             items(people) { person ->
                 Text(
-                    text = person.name,
+                    text = person.folder.name,
                     modifier = Modifier
                         .fillMaxWidth()
                         .clickable {
                             scope.launch {
-                                peopleDao.delete(person)
+                                peopleDao.deleteFolder(person.folder.id?:0)
                             }
                         }
                         .padding(16.dp)

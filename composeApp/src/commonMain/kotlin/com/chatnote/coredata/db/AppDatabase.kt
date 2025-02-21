@@ -1,4 +1,4 @@
-package com.chatnote.coredata.di.db
+package com.chatnote.coredata.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
